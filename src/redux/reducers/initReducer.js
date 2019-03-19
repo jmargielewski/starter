@@ -1,5 +1,5 @@
 import {
-  FETCH_DATA,
+  FETCH_DATA_REQUEST,
   FETCH_DATA_SUCCESS,
   FETCH_DATA_FAILURE,
 } from '../actions/types';
@@ -12,7 +12,7 @@ export const INITIAL_STATE = {
 
 const initReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case FETCH_DATA:
+    case FETCH_DATA_REQUEST:
       return { ...state, loading: true };
     case FETCH_DATA_SUCCESS:
       return { ...state, loading: false, data: action.payload };

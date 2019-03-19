@@ -1,4 +1,8 @@
-import { FETCH_DATA, FETCH_DATA_SUCCESS, FETCH_DATA_FAILURE } from './types';
+import {
+  FETCH_DATA_REQUEST,
+  FETCH_DATA_SUCCESS,
+  FETCH_DATA_FAILURE,
+} from './types';
 import api from '../../api/api';
 
 const fetchDataSuccess = response => ({
@@ -11,10 +15,10 @@ const fetchDataFailure = err => ({
   payload: err,
 });
 
-export const fetchdata = data => async (dispatch) => {
-  dispatch({ type: FETCH_DATA });
+export const fetchData = data => async (dispatch) => {
+  dispatch({ type: FETCH_DATA_REQUEST });
   try {
-    const response = await api.get('/');
+    const response = await api.get(`/${data}`);
     if (response.status === 200) {
       dispatch(fetchDataSuccess(response.data));
     } else {
