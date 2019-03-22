@@ -3,13 +3,10 @@ import { render } from 'react-dom';
 import Root from './Root';
 import App from './components/App/App';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
-import configureStore from './redux/configureStore';
 import * as serviceWorker from './serviceWorker';
 
-const store = configureStore();
-
 render(
-  <Root store={store}>
+  <Root>
     <ErrorBoundary>
       <App />
     </ErrorBoundary>
